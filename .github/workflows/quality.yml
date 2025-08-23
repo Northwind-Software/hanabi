@@ -1,0 +1,81 @@
+name: 'Quality Checks'
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - feature/**
+      - bugfix/**
+      - ci/**
+      - doc/**
+      - example/**
+      - refactor/**
+      - test/**
+      - chore/**
+
+jobs:
+  check-formating:
+    name: 'Check Formatting'
+    runs-on: blacksmith-4vcpu-ubuntu-2204
+    steps:
+      - name: 'Checkout Code'
+        uses: actions/checkout@v4
+      - name: 'Install Rust'
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          toolchain: stable
+          components: rustfmt
+      - name: 'Check Formatting'
+        run: cargo fmt --all -- --check
+  check-linting:
+    name: 'Check Linting'
+    runs-on: blacksmith-4vcpu-ubuntu-2204
+    steps:
+      - name: 'Checkout Code'
+        uses: actions/checkout@v4
+      - name: 'Install Rust'
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+        with:
+          toolchain: stable
+          components: clippy
+      - name: 'Check Linting'
+        run: cargo clippy --all-targets --all-features -- -Dwarnings
+  run-unit-tests:
+    name: 'Run Unit Tests'
+    runs-on: blacksmith-4vcpu-ubuntu-2204
+    needs:
+      - check-formating
+      - check-linting
+    steps:
+      - name: 'Checkout Code'
+        uses: actions/checkout@v4
+      - name: 'Install Rust'
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: 'Run Unit Tests'
+        run: cargo test --workspace --lib --bins --all-features
+  run-integration-tests:
+    name: 'Run Integration Tests'
+    runs-on: blacksmith-4vcpu-ubuntu-2204
+    needs:
+      - check-formating
+      - check-linting
+    steps:
+      - name: 'Checkout Code'
+        uses: actions/checkout@v4
+      - name: 'Install Rust'
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: 'Run Integration Tests'
+        run: cargo test --workspace --test '*'
+  run-doc-tests:
+    name: 'Run Documentation Tests'
+    runs-on: blacksmith-4vcpu-ubuntu-2204
+    needs:
+      - check-formating
+      - check-linting
+    steps:
+      - name: 'Checkout Code'
+        uses: actions/checkout@v4
+      - name: 'Install Rust'
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: 'Run Documentation Tests'
+        run: cargo test --workspace --doc

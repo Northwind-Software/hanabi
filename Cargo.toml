@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["crates/bin/hanabi"]
+members = ["crates/bin/hanabi", "crates/lib/hanabi-client"]
 
 [workspace.package]
 edition = "2024"
