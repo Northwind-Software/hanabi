@@ -1,6 +1,7 @@
 [package]
 name = "hanabi-client"
-version = "0.1.0"
+description = "Hanabi's Client API for Rust"
+version = "0.1.0-alpha.1"
 edition.workspace = true
 rust-version.workspace = true
 authors.workspace = true

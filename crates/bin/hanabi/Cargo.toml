@@ -1,6 +1,7 @@
 [package]
 name = "hanabi"
-version = "0.1.0"
+description = "Hanabi is a highly flexible and fast message broker and event streamer."
+version = "0.1.0-alpha.1"
 edition.workspace = true
 rust-version.workspace = true
 authors.workspace = true
