@@ -16,4 +16,5 @@ jobs:
         with:
           toolchain: stable
       - name: 'Publish'
-        run: cargo publish --workspace --all-features --locked --token ${{ secrets.CARGO_TOKEN }}
+        run: |
+          cargo publish -p hanabi --all-features --locked --token ${{ secrets.CARGO_TOKEN }}

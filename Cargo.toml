@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["crates/bin/hanabi", "crates/lib/hanabi-client"]
+members = ["crates/bin/hanabi", "crates/lib/hanabi-client", "crates/lib/hanabi-core"]
 
 [workspace.package]
 edition = "2024"
@@ -14,3 +14,4 @@ documentation = "https://github.com/Northwind-Software/hanabi/wiki"
 publish = true
 
 [workspace.dependencies]
+hanabi-core = { path = "crates/lib/hanabi-core", version = "0.1.0-alpha.1" }

@@ -1,6 +1,6 @@
 [package]
-name = "hanabi-client"
-description = "Hanabi's Client API for Rust"
+name = "hanabi-core"
+description = "Hanabi core library with common types and shared functionality"
 version = "0.1.0-alpha.1"
 edition.workspace = true
 rust-version.workspace = true
@@ -13,4 +13,3 @@ documentation.workspace = true
 publish.workspace = true
 
 [dependencies]
-hanabi-core = { workspace = true, version = "0.1.0-alpha.1" }
