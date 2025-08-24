@@ -13,4 +13,4 @@ documentation.workspace = true
 publish.workspace = true
 
 [dependencies]
-hanabi-core = { workspace = true, version = "0.1.0-alpha.1" }
+hanabi-core = { workspace = true }

@@ -1,6 +1,10 @@
 [workspace]
 resolver = "3"
-members = ["crates/bin/hanabi", "crates/lib/hanabi-client", "crates/lib/hanabi-core"]
+members = [
+    "crates/bin/hanabi",
+    "crates/lib/hanabi-client",
+    "crates/lib/hanabi-core",
+]
 
 [workspace.package]
 edition = "2024"
@@ -15,3 +19,23 @@ publish = true
 
 [workspace.dependencies]
 hanabi-core = { path = "crates/lib/hanabi-core", version = "0.1.0-alpha.1" }
+
+quinn = { version = "0.11.8", features = ["rustls"] }
+
+serde = { version = "1.0.219", features = ["derive"] }
+ciborium = { version = "0.2.2" }
+bytes = { version = "1.10.1", features = ["serde"] }
+
+ulid = { version = "1.2.1", features = ["serde"] }
+chrono = { version = "0.4.41", features = ["serde"] }
+
+brotli = { version = "8.0.2" }
+
+rustls = { version = "0.23.31", features = ["ring"] }
+xxhash-rust = { version = "0.8.15", features = ["xxh3"] }
+
+flume = { version = "0.11.1", features = ["async"] }
+
+tracing = { version = "0.1.41" }
+
+thiserror = { version = "2.0.16" }

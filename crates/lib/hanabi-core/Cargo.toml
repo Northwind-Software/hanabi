@@ -13,3 +13,17 @@ documentation.workspace = true
 publish.workspace = true
 
 [dependencies]
+serde = { workspace = true }
+ciborium = { workspace = true }
+bytes = { workspace = true }
+
+ulid = { workspace = true }
+chrono = { workspace = true }
+
+xxhash-rust = { workspace = true }
+
+flume = { workspace = true }
+
+tracing = { workspace = true }
+
+thiserror = { workspace = true }
